@@ -1,0 +1,50 @@
+POST http://localhost:8005/api/users/createUser HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id" : 12434234324,
+    "name": "Edwin",
+    "last_name": "German",
+    "email": "edwingerman@gmail.com",
+    "password": "123456789"
+}
+
+###
+POST http://localhost:8005/api/users/modifyUser HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id" : 12434234324,
+    "name": "Edwin",
+    "last_name": "German",
+    "email": "edwingerman@gmail.com",
+    "oldPassword": "123456789",
+    "newPassword": "123456789"
+
+}
+
+
+###
+GET http://localhost:8005/api/users/showUsers HTTP/1.1
+
+###
+GET http://localhost:8005/api/data/showData HTTP/1.1
+
+###
+
+GET http://localhost:8005/sanarium/users/62e2120da921abd0d1695ac8 HTTP/1.1
+
+
+###
+PUT http://localhost:8005/sanarium/users/62e2120da921abd0d1695ac8 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "prueba3",
+    "email": "3@email.com"
+
+}
+###
+
+DELETE http://localhost:8005/sanarium/users/62e2120da921abd0d1695ac8 HTTP/1.1
+
