@@ -40,8 +40,8 @@ Content-Type: application/json
 
 {
     "_id" : "07ddabc6-829b-4edf-800d-ef11d1313c9e",
-    "acuariumId": "0003",
-    "name": "Cuarto"
+    "acuariumId": "0002",
+    "name": "Sala"
 }
 
 ###
@@ -50,7 +50,7 @@ Content-Type: application/json
 
 {
     "userId" : "07ddabc6-829b-4edf-800d-ef11d1313c9e",
-    "acuariumId": "0001"
+    "acuariumId": "0003"
 
 }
 
@@ -70,7 +70,7 @@ DELETE http://localhost:8005/api/users/deleteAcuarium/12434234324 HTTP/1.1
 Content-Type: application/json
 
 {
-    "acuariumId": "0001"
+    "acuariumId": "3"
 
 }
 
