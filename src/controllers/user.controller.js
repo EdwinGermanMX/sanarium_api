@@ -156,7 +156,7 @@ module.exports = {
     }
   },
   addAcuarium: async function (req, res) {
-    const _id = req.body._id;
+    const _id = req.body.id;
     var user = new User ({
       acuariums: [{
         acuariumId: req.body.acuariumId,
