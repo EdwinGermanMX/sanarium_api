@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 var acuariumSchema =  mongoose.Schema({
-    acuariumId : Number,
+    acuariumId : String,
     name: String
   });
 

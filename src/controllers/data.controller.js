@@ -5,8 +5,9 @@ require("dotenv").config();
 
 module.exports = {
     getValues: async function (req, res) {
-        var { acuariumId } = req.body;
-        const data = await Data.find();
+        var { acuariumId } = req.params;
+        console.log(acuariumId)
+        const data = await Data.find({acuariumId : acuariumId});
         try {
           return res.status(200).json({ data });
         } catch (error) {

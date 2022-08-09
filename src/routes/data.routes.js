@@ -8,5 +8,5 @@ const verifyToken = require("../controllers/validate-token.controller");
 /*Verify Token */
 router.get("/verifyToken", verifyToken);
 /*Quitar esta ruta al final de las pruebas */
-router.get("/showData", dataController.getValues);
+router.get("/showData/:acuariumId", dataController.getValues);
 module.exports = router;

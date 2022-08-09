@@ -27,7 +27,7 @@ Content-Type: application/json
 GET http://localhost:8005/api/users/showUsers HTTP/1.1
 
 ###
-GET http://localhost:8005/api/data/showData HTTP/1.1
+GET http://localhost:8005/api/data/showData/0001 HTTP/1.1
 
 ###
 
@@ -39,9 +39,9 @@ POST http://localhost:8005/api/users/addAcuarium HTTP/1.1
 Content-Type: application/json
 
 {
-    "_id" : "12434234324",
-    "acuariumId": "0001",
-    "name": "Sala"
+    "_id" : "07ddabc6-829b-4edf-800d-ef11d1313c9e",
+    "acuariumId": "0003",
+    "name": "Cuarto"
 }
 
 ###
@@ -49,8 +49,8 @@ POST http://localhost:8005/api/users/deleteAcuarium HTTP/1.1
 Content-Type: application/json
 
 {
-    "userId" : "12434234324",
-    "acuariumId": "0002"
+    "userId" : "07ddabc6-829b-4edf-800d-ef11d1313c9e",
+    "acuariumId": "0001"
 
 }
 
