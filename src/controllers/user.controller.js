@@ -154,5 +154,32 @@ module.exports = {
     } catch (error) {
       res.status(400).json({ error });
     }
+  },
+  addAcuarium: async function (req, res) {
+    const _id = req.body._id;
+    var user = new User ({
+      acuariums: [{
+        acuariumId: req.body.acuariumId,
+        name : req.body.name
+      }]
+    });
+    // Usamos .updateOne() del model para agregar la nueva pecera
+    var modifiedUser= "";
+    try {
+      modifiedUser = await User.updateOne({ _id: _id },{ $push: { user }});
+      const token = jwt.sign(
+        {
+          id: _id,
+        },
+        process.env.SECRET
+      );
+      return res.status(200).json({
+        data: { token },
+        _id: modifiedUser._id,
+        message: "Acuarium Added Corectly",
+      });
+    } catch (error) {
+      res.status(400).json({ error });
+    }
   },  
 };

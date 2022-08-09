@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 var acuariumSchema =  mongoose.Schema({
-  acuariumId : Number
+  acuariumId : Number,
+  name: String
 });
 
 const userSchema = mongoose.Schema({
@@ -30,3 +31,4 @@ const userSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model("User", userSchema);
+
