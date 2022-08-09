@@ -14,6 +14,10 @@ router.get("/getSingleUser/:id", userController.getSingleUser);
 
 router.post("/modifyUser", userController.modifyUser);
 
+router.post("/addAcuarium", userController.addAcuarium);
+
+router.post("/deleteAcuarium", userController.deleteAcuarium);
+
 /*Verify Token */
 router.get("/verifyToken", verifyToken);
 /*Quitar esta ruta al final de las pruebas */

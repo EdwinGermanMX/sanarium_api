@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
-
-var acuariumSchema =  mongoose.Schema({
-  acuariumId : Number,
-  name: String
-});
+var acuariumSchema = require('../models/Acuarium').schema;
 
 const userSchema = mongoose.Schema({
   _id: {

@@ -1,4 +1,5 @@
 const User = require("../models/User");
+var Acuarium = require('../models/Acuarium');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -138,8 +139,8 @@ module.exports = {
     // Usamos .updateOne() del model para almacenar los datos en Mongo
     var modifiedUser= "";
     try {
-      if (newPassword) modifiedUser = await User.updateOne({ _id: _id },{ $set: { _id, name, last_name, email, password }});
-      else  modifiedUser = await User.updateOne({ _id: _id },{ $set: { _id, name, last_name, email}});
+      if (newPassword) modifiedUser = await User.updateOne({ _id: _id },{ $set: { _id, name, last_name, password }});
+      else  modifiedUser = await User.updateOne({ _id: _id },{ $set: { _id, name, last_name}});
       const token = jwt.sign(
         {
           id: _id,
@@ -156,17 +157,21 @@ module.exports = {
     }
   },
   addAcuarium: async function (req, res) {
-    const _id = req.body.id;
-    var user = new User ({
-      acuariums: [{
+    const _id = req.body._id;
+    console.log(_id);
+    //Validacion si ya agrego el acuario
+    const isAcuarioExist = await User.findOne({ "acuariums" : {"acuariumId": acuariumId } });
+
+    if (isEmailExist)
+      return res.status(400).json({ messageError: "Email already registered" });
+    var acuarium = new Acuarium({
         acuariumId: req.body.acuariumId,
         name : req.body.name
-      }]
     });
     // Usamos .updateOne() del model para agregar la nueva pecera
     var modifiedUser= "";
     try {
-      modifiedUser = await User.updateOne({ _id: _id },{ $push: { user }});
+      modifiedUser = await User.updateOne({ _id: _id },{ $push: { acuariums: acuarium }});
       const token = jwt.sign(
         {
           id: _id,
@@ -181,5 +186,28 @@ module.exports = {
     } catch (error) {
       res.status(400).json({ error });
     }
-  },  
+  },
+  deleteAcuarium: async function (req, res) {
+    const _id = req.body.userId;
+    const acuariumId = req.body.acuariumId;
+    console.log(_id);
+    // Usamos .updateOne() del model para agregar la nueva pecera
+    var deletedAcuarium= "";
+    try {
+      deletedAcuarium = await User.findOneAndUpdate({ _id: _id },{ $pull: { "acuariums" : {"acuariumId": acuariumId } }});
+      const token = jwt.sign(
+        {
+          id: _id,
+        },
+        process.env.SECRET
+      );
+      return res.status(200).json({
+        data: { token },
+        _id: deletedAcuarium._id,
+        message: "Acuarium Deleted Corectly",
+      });
+    } catch (error) {
+      res.status(400).json({ error });
+    }
+  },    
 };

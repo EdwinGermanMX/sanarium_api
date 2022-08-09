@@ -3,7 +3,7 @@ const Data = require("../models/Data");
 var mqtt=require('mqtt');
 
 var options={
-    clientId:"sanarium_api", //Eliminate _test when making a commit on git
+    clientId:"sanarium_api_test", //Eliminate _test when making a commit on git
     username:"user1",
     password:"user1",
     clean:true
