@@ -73,6 +73,7 @@ module.exports = {
     return res.status(200).header("auth-token", token).json({
       data: { token },
       id: user._id,
+      acuariums: user.acuariums,
       message: "Bienvenido",
     });
   },
@@ -158,12 +159,13 @@ module.exports = {
   },
   addAcuarium: async function (req, res) {
     const _id = req.body._id;
-    console.log(_id);
+    const validateAcuarium = req.body.acuariumId;
+    console.log(validateAcuarium);
     //Validacion si ya agrego el acuario
-    const isAcuarioExist = await User.findOne({ "acuariums" : {"acuariumId": acuariumId } });
+    const isAcuarioExist = await User.findOne({ "acuariums.acuariumId" : validateAcuarium });
 
-    if (isEmailExist)
-      return res.status(400).json({ messageError: "Email already registered" });
+    if (isAcuarioExist)
+      return res.status(400).json({ messageError: "Acuarium already added" });
     var acuarium = new Acuarium({
         acuariumId: req.body.acuariumId,
         name : req.body.name
