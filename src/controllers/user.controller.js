@@ -190,7 +190,7 @@ module.exports = {
     }
   },
   deleteAcuarium: async function (req, res) {
-    const _id = req.params.userId;
+    const _id = req.body.userId;
     const acuariumId = req.body.acuariumId;
     console.log(_id);
     // Usamos .updateOne() del model para agregar la nueva pecera
