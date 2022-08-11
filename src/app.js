@@ -12,9 +12,9 @@ app.set("json spaces", 4);
 
 // Middlewares
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://sanarium-evemzbx3p-aaronflores11.vercel.app/"
 };
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/api/users", userRoutes);

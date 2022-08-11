@@ -158,7 +158,7 @@ module.exports = {
     }
   },
   addAcuarium: async function (req, res) {
-    const _id = req.body._id;
+    const _id = req.params._id;
     const validateAcuarium = req.body.acuariumId;
     console.log(validateAcuarium);
     //Validacion si ya agrego el acuario
@@ -190,7 +190,7 @@ module.exports = {
     }
   },
   deleteAcuarium: async function (req, res) {
-    const _id = req.body.userId;
+    const _id = req.params.userId;
     const acuariumId = req.body.acuariumId;
     console.log(_id);
     // Usamos .updateOne() del model para agregar la nueva pecera

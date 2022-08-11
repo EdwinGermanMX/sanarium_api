@@ -12,11 +12,11 @@ router.get("/getSingleUser/:id", userController.getSingleUser);
 
 router.get("/getSingleUser/:id", userController.getSingleUser);
 
-router.post("/modifyUser", userController.modifyUser);
+router.patch("/modifyUser:id", userController.modifyUser);
 
 router.post("/addAcuarium", userController.addAcuarium);
 
-router.post("/deleteAcuarium", userController.deleteAcuarium);
+router.delete("/deleteAcuarium:id", userController.deleteAcuarium);
 
 /*Verify Token */
 router.get("/verifyToken", verifyToken);

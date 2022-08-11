@@ -1,5 +1,5 @@
 const app = require("./app");
-require("./database");
+require("./models/database");
 require("./controllers/mqtt");
 
 app.listen(app.get("port"));
