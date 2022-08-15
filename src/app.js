@@ -1,6 +1,6 @@
 const pkg = require("../package.json");
 const express = require("express");
-//const cors = require("cors");
+const cors = require("cors");
 const userRoutes = require("./routes/user.routes");
 const dataRoutes = require("./routes/data.routes");
 const app = express();
